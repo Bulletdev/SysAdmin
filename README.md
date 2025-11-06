@@ -1,13 +1,13 @@
 <img src="public/syscover.png" alt="Project Logo" width="1920">
 
-[![CI](https://github.com/bulletdev/SysAdmin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/bulletdev/SysAdmin/actions/workflows/codeql-analysis.yml)
+[![CI](https://github.com/bulletdev/SysAdmin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/bulletdev/SysAdmin/actions/workflows/codeql-analysis.yml) [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+
 [![Ruby Version](https://img.shields.io/badge/ruby-3.4.5-CC342D?logo=ruby)](https://www.ruby-lang.org/)
 [![Rails Version](https://img.shields.io/badge/rails-7.2-CC342D?logo=rubyonrails)](https://rubyonrails.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue.svg?logo=postgresql)](https://www.postgresql.org/)
 [![Redis](https://img.shields.io/badge/Redis-6+-red.svg?logo=redis)](https://redis.io/)
 [![Sidekiq](https://img.shields.io/badge/sidekiq-7.3-orange.svg)](https://sidekiq.org)
-
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ---
 ## Sumário
@@ -114,9 +114,10 @@ Siga estes passos para configurar e iniciar a aplicação:
 **1. Clonar o Repositório**
 
 ```bash
-git clone [https://github.com/bulletdev/sysadmin.git](https://github.com/bulletdev/sysadmin.git)
+git clone https://github.com/bulletdev/sysadmin.git
 cd sysadmin
 ````
+git checkout to Md-test branch
 
 **2. Configurar Variáveis de Ambiente**
 
