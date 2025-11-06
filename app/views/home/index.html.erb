@@ -1,0 +1,189 @@
+<!-- Navegação global vem do layout application.html.erb -->
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-blue-700 to-purple-700 text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/10"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-bold font-lexend mb-6 animate-fade-in">
+          A plataforma para gerir e desenvolver pessoas
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-xl animate-fade-in" style="animation-delay: 0.15s;">
+          Traga para sua empresa uma gestão simples, segura e poderosa de usuários, performance e desenvolvimento.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <% if user_signed_in? %>
+            <a href="<%= admin_dashboard_path %>" class="px-5 py-3 rounded-xl bg-white text-gray-900 font-medium hover:bg-gray-100">Abrir Dashboard</a>
+            <a href="<%= user_profile_path %>" class="px-5 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10">Ver Perfil</a>
+          <% else %>
+          <% end %>
+        </div>
+        <div class="mt-8 text-sm text-white/80">
+          Sem complicação. 
+          
+          Sem risco. 
+
+          Foque no que importa: pessoas.
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+        <div class="absolute -bottom-10 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-white/10">
+              <div class="text-sm text-white/80">Usuários ativos</div>
+              <div class="text-3xl font-bold">1.248</div>
+            </div>
+            <div class="p-4 rounded-xl bg-white/10">
+              <div class="text-sm text-white/80">Avaliações</div>
+              <div class="text-3xl font-bold">32k</div>
+            </div>
+            <div class="p-4 rounded-xl bg-white/10">
+              <div class="text-sm text-white/80">Metas</div>
+              <div class="text-3xl font-bold">8.721</div>
+            </div>
+            <div class="p-4 rounded-xl bg-white/10">
+              <div class="text-sm text-white/80">Feedbacks</div>
+              <div class="text-3xl font-bold">15.903</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated Background Elements -->
+  <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-400/10 rounded-full filter blur-xl animate-float"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-400/10 rounded-full filter blur-xl animate-float" style="animation-delay: 1s;"></div>
+</section>
+
+<!-- Soluções Section -->
+<section id="solucoes" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold font-lexend text-gray-900 mb-4 animate-slide-up">Soluções</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">Um conjunto de módulos para apoiar seu ciclo completo de gestão de pessoas.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Solução: Avaliações -->
+      <a href="<%= evaluations_path %>" class="block card-hover bg-gray-50 p-8 rounded-2xl border border-gray-100 animate-slide-up" style="animation-delay: 0.05s;">
+        <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+          <%= image_tag "/icons/desempenho.svg", alt: "Avaliações de Desempenho", class: "w-7 h-7" %>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Avaliações de Desempenho</h3>
+        <p class="text-gray-600">Crie, conduza e acompanhe ciclos de avaliação. Feedback contínuo e 9 Box.</p>
+      </a>
+      
+      <!-- Solução: Metas -->
+      <a href="<%= goals_path %>" class="block card-hover bg-gray-50 p-8 rounded-2xl border border-gray-100 animate-slide-up" style="animation-delay: 0.1s;">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
+          <%= image_tag "/icons/Metas.svg", alt: "Metas e OKRs", class: "w-7 h-7" %>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Metas e OKRs</h3>
+        <p class="text-gray-600">Defina objetivos, acompanhe resultados e acelere a performance com transparência.</p>
+      </a>
+      
+      <!-- Solução: Feedback -->
+      <a href="<%= feedbacks_path %>" class="block card-hover bg-gray-50 p-8 rounded-2xl border border-gray-100 animate-slide-up" style="animation-delay: 0.15s;">
+        <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+          <%= image_tag "/icons/feedback.svg", alt: "Feedback Contínuo", class: "w-7 h-7" %>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Feedback Contínuo</h3>
+        <p class="text-gray-600">Estimule conversas de desenvolvimento com feedbacks estruturados e registros claros.</p>
+      </a>
+      
+      <!-- Solução: PDI -->
+      <a href="<%= pdi_path %>" class="block card-hover bg-gray-50 p-8 rounded-2xl border border-gray-100 animate-slide-up" style="animation-delay: 0.2s;">
+        <div class="w-12 h-12 bg-gradient-accent rounded-xl flex items-center justify-center mb-6">
+          <%= image_tag "/icons/desenvolvimento.svg", alt: "PDI", class: "w-7 h-7" %>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Planos de Desenvolvimento Individual</h3>
+        <p class="text-gray-600">Estruture PDIs e acompanhe evolução com objetivos e ações práticas.</p>
+      </a>
+      
+      <!-- Solução: Matriz de Talentos -->
+      <a href="<%= talent_matrix_path %>" class="block card-hover bg-gray-50 p-8 rounded-2xl border border-gray-100 animate-slide-up" style="animation-delay: 0.25s;">
+        <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+          <%= image_tag "/icons/talento.svg", alt: "Matriz de Talentos", class: "w-7 h-7" %>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Matriz de Talentos</h3>
+        <p class="text-gray-600">Visualize prontidão e potencial para decisões de sucessão e carreira.</p>
+      </a>
+      
+      <!-- Solução: Sucessão -->
+      <a href="<%= succession_path %>" class="block card-hover bg-gray-50 p-8 rounded-2xl border border-gray-100 animate-slide-up" style="animation-delay: 0.3s;">
+        <div class="w-12 h-12 bg-gradient-accent rounded-xl flex items-center justify-center mb-6">
+          <%= image_tag "/icons/sucesso.svg", alt: "Sucessão", class: "w-7 h-7" %>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Sucessão</h3>
+        <p class="text-gray-600">Planeje substituições e trilhas com confiança baseada em dados.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Destaques Section -->
+<section id="recursos" class="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+      <div class="p-8 rounded-2xl bg-white/10 border border-white/10 animate-slide-up">
+        <div class="text-2xl font-semibold mb-2">Segurança</div>
+        <p class="text-white/80">Autenticação com Devise, proteção CSRF e gestão de acesso por perfis.</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-white/10 border border-white/10 animate-slide-up" style="animation-delay: 0.1s;">
+        <div class="text-2xl font-semibold mb-2">Escalabilidade</div>
+        <p class="text-white/80">Arquitetura Rails 7 com otimizações para alta performance e confiabilidade.</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-white/10 border border-white/10 animate-slide-up" style="animation-delay: 0.2s;">
+        <div class="text-2xl font-semibold mb-2">Integração</div>
+        <p class="text-white/80">Endpoints prontos para integração com serviços internos e ferramentas de RH.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos Section -->
+<section id="depoimentos" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold font-lexend text-gray-900">O que dizem nossos usuários</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-8 rounded-2xl border border-gray-100 bg-gray-50">
+        <p class="text-gray-700">“Simplificou nosso processo de avaliações e melhorou a transparência de metas.”</p>
+        <div class="mt-4 text-sm text-gray-500">Gerente de RH • Setor Industrial</div>
+      </div>
+      <div class="p-8 rounded-2xl border border-gray-100 bg-gray-50">
+        <p class="text-gray-700">“A gestão de usuários ficou muito mais organizada, com perfis e permissões claras.”</p>
+        <div class="mt-4 text-sm text-gray-500">Coordenador de TI • Serviços</div>
+      </div>
+      <div class="p-8 rounded-2xl border border-gray-100 bg-gray-50">
+        <p class="text-gray-700">“Feedbacks e PDIs finalmente ganharam ritmo e acompanhamento real.”</p>
+        <div class="mt-4 text-sm text-gray-500">Líder de Pessoas • Varejo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section id="contato" class="py-20 bg-gray-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold font-lexend text-white mb-6 animate-slide-up">
+      Pronto para começar?
+    </h2>
+    <p class="text-xl text-gray-300 mb-8 animate-slide-up" style="animation-delay: 0.2s;">
+      Leve o nosso padrão de experiência para sua operação com o SysAdmin.
+    </p>
+    <% if user_signed_in? %>
+      <a href="<%= admin_dashboard_path %>" class="px-6 py-3 rounded-xl bg-white text-gray-900 font-medium hover:bg-gray-100">Ir ao Dashboard</a>
+    <% else %>
+      <div class="flex items-center justify-center gap-3">
+        <a href="<%= new_user_registration_path %>" class="px-6 py-3 rounded-xl bg-white text-gray-900 font-medium hover:bg-gray-100">Criar conta</a>
+        <a href="<%= new_user_session_path %>" class="px-6 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10">Entrar</a>
+      </div>
+    <% end %>
+  </div>
+</section>

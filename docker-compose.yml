@@ -1,0 +1,44 @@
+services:
+  web:
+    build:
+      context: .
+    command: bash -c "until pg_isready -h db -p 5432 -U postgres; do echo 'Aguardando Postgres...'; sleep 1; done; rm -f tmp/pids/server.pid && bundle exec rails s -p 4040 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - rails-docker_bundle:/usr/local/bundle
+    ports:
+      - "4040:4040"
+    networks:
+      - rails-docker_network
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${ENV_FILE:-.env}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:15-alpine
+    container_name: rails-docker_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "25432:5432"
+    networks:
+      - rails-docker_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  pg_data:
+  rails-docker_bundle:
+
+networks:
+  rails-docker_network:

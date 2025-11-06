@@ -1,0 +1,71 @@
+<div class="min-h-screen bg-gray-50 py-12">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">Criar Novo Usuário</h1>
+      <p class="text-gray-600">Preencha os dados abaixo para cadastrar um usuário.</p>
+    </div>
+
+    <% if @user.errors.any? %>
+      <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <h2 class="text-red-700 font-semibold mb-2">Erros ao salvar:</h2>
+        <ul class="list-disc list-inside text-red-600 text-sm">
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <%= form_with model: @user, url: admin_users_path, local: true do |f| %>
+        <div class="grid grid-cols-1 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Nome completo</label>
+            <%= f.text_field :full_name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <%= f.email_field :email, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Senha</label>
+              <%= f.password_field :password, autocomplete: "new-password", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Confirmar senha</label>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Função</label>
+            <%= f.select :job_role, [["Analista", "Analista"], ["Gerente", "Gerente"], ["Coordenador", "Coordenador"], ["Assistente", "Assistente"], ["Diretor", "Diretor"]], { include_blank: "Selecione a função" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Setor</label>
+            <%= f.select :department, [["TI", "TI"], ["Financeiro", "Financeiro"], ["RH", "RH"], ["Operações", "Operações"], ["Vendas", "Vendas"]], { include_blank: "Selecione o setor" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Papel no sistema</label>
+            <%= f.select :role, [["Administrador", "admin"], ["Usuário", "no_admin"]], {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Avatar (URL)</label>
+            <%= f.text_field :avatar_image, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500" %>
+          </div>
+
+          <div class="flex items-center justify-end gap-3 mt-4">
+            <%= link_to "Cancelar", admin_users_path, class: "px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50" %>
+            <%= f.submit "Criar Usuário", class: "px-4 py-2 rounded-md bg-primary-600 text-white hover:bg-primary-700" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
