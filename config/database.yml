@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  # --- Configuração para Docker ---
+  host: db
+
+  port: 5432
+
+  username: postgres
+  password: postgres
+  # ---------------------------------
+
+development:
+  <<: *default
+  database: Fullstack_Developer_development
+
+test:
+  <<: *default
+  database: Fullstack_Developer_test
+
+production:
+  <<: *default
+  database: Fullstack_Developer_production
+  username: Fullstack_Developer
+  password: <%= ENV["FULLSTACK_DEVELOPER_DATABASE_PASSWORD"] %>
+  # host: <%= ENV["PRODUCTION_DATABASE_HOST"] %>
