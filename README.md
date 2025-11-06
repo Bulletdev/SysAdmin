@@ -75,10 +75,10 @@
   <table border="0">
     <tr>
       <td align="center">
-        <strong>Teste de carga</strong><br>
+        <strong>Teste de carga1(falha sem migrations)</strong><br>
         <img src="public/preview/k6.PNG" alt="k6 testando usuários" width="400">
       <td align="center">
-        <strong>Teste de carga 2</strong><br>
+        <strong>Teste de carga 2 (sucesso) </strong><br>
         <img src="public/preview/K62.PNG" alt="k6 testando usuários" width="400">
     </tr>
       <td align="center">
