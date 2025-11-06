@@ -1,0 +1,87 @@
+<!-- Edit Registration (Change Password) -->
+<section class="min-h-screen bg-gradient-to-br from-primary-50 to-accent-50 flex items-center justify-center px-4 py-12">
+  <div class="max-w-md w-full">
+    <!-- Header -->
+    <div class="text-center mb-8 animate-fade-in">
+      <div class="flex justify-center mb-4">
+        <div class="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-lg">
+          <span class="text-white font-bold text-2xl">🔒</span>
+        </div>
+      </div>
+      <h1 class="text-3xl font-bold font-lexend text-gray-900 mb-2">Atualizar sua conta</h1>
+      <p class="text-gray-600">Altere senha ou email com segurança</p>
+    </div>
+
+    <!-- Card -->
+    <div class="bg-white/80 backdrop-blur rounded-2xl shadow-2xl p-8 card-hover animate-slide-up">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "space-y-6", data: { turbo: false } }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <!-- Email -->
+        <div class="space-y-2">
+          <%= f.label :email, "Email", class: "block text-sm font-semibold text-gray-700" %>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+              </svg>
+            </div>
+            <%= f.email_field :email, autocomplete: "email",
+                  class: "w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50" %>
+          </div>
+        </div>
+
+        <!-- New Password -->
+        <div class="space-y-2">
+          <%= f.label :password, "Nova senha", class: "block text-sm font-semibold text-gray-700" %>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <%= f.password_field :password, autocomplete: "new-password",
+                  placeholder: "(opcional)",
+                  class: "w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50" %>
+          </div>
+        </div>
+
+        <!-- Confirm New Password -->
+        <div class="space-y-2">
+          <%= f.label :password_confirmation, "Confirmar nova senha", class: "block text-sm font-semibold text-gray-700" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                class: "w-full pr-3 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50" %>
+        </div>
+
+        <!-- Current Password -->
+        <div class="space-y-2">
+          <%= f.label :current_password, "Senha atual (necessária)", class: "block text-sm font-semibold text-gray-700" %>
+          <%= f.password_field :current_password, autocomplete: "current-password",
+                class: "w-full pr-3 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50" %>
+        </div>
+
+        <!-- Submit -->
+        <div>
+          <%= f.submit "Salvar alterações", class: "w-full btn-primary text-white py-3 px-4 rounded-xl font-semibold text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 cursor-pointer transition-all duration-200" %>
+        </div>
+      <% end %>
+
+      <!-- Danger Zone -->
+      <div class="mt-8 p-4 border border-red-200 rounded-xl bg-red-50">
+        <h2 class="text-sm font-semibold text-red-700 mb-2">Zona de risco</h2>
+        <p class="text-sm text-red-600 mb-4">Excluir sua conta é irreversível.</p>
+        <%= button_to "Excluir minha conta", registration_path(resource_name), method: :delete,
+              class: "w-full inline-flex justify-center py-2 px-4 rounded-xl shadow-sm bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors" %>
+      </div>
+    </div>
+
+    <!-- Back link -->
+    <div class="mt-6 text-center">
+      <%= link_to "Voltar", root_path, class: "text-sm text-primary-600 hover:text-primary-500 font-medium" %>
+    </div>
+  </div>
+</section>
+
+<!-- Background Elements -->
+<div class="fixed top-1/4 left-1/4 w-64 h-64 bg-primary-400/10 rounded-full filter blur-xl animate-float pointer-events-none"></div>
+<div class="fixed bottom-1/4 right-1/4 w-96 h-96 bg-accent-400/10 rounded-full filter blur-xl animate-float pointer-events-none" style="animation-delay: 1s;"></div>
